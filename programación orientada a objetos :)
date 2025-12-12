@@ -1,0 +1,34 @@
+#cálculo de promedio semanal climatico de Zurich - Suiza y Guayaquil - Ecuador
+
+class SemanaClima:
+    # esta es la clase que representa el clima de una semana en una ubicación
+    
+    def __init__(self, lugar, temperaturas):
+        self.lugar = lugar
+        self.temperaturas = temperaturas 
+    
+    def calcular_promedio(self):
+        return sum(self.temperaturas) / len(self.temperaturas)
+    
+    def mostrar(self):
+      # este muestra las temperaturas diarias y el promedio semanal
+        promedio = self.calcular_promedio()
+        print(f"\nClima semanal en {self.lugar}")
+        print("Temperaturas diarias (°C):")
+        for i, temp in enumerate(self.temperaturas, 1):
+            print(f"  Día {i}: {temp}°C")
+        print(f"Promedio semanal: {promedio:.2f}°C")
+
+def main():
+  #es la función principal que ejecuta el programa."""
+    print("Promedio Semanal del Clima\n")
+    
+    # datos aproximados de una semana en diciembre
+    zurich = SemanaClima("Zurich, Suiza", [4, 3, 5, 2, 1, 3, 4])
+    guayaquil = SemanaClima("Guayaquil, Ecuador", [31, 30, 32, 29, 31, 30, 31])
+    
+    zurich.mostrar()
+    guayaquil.mostrar()
+
+if __name__ == "__main__":
+    main()
